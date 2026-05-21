@@ -39,16 +39,18 @@ export function Header() {
         <nav className="hidden items-center gap-6 md:flex">
           <div className="group relative">
             <button className="text-sm tracking-[0.08em] text-white uppercase">Modalidades</button>
-            <div className="pointer-events-none absolute top-9 left-0 w-56 rounded border border-[#F5C400]/30 bg-black/95 p-2 opacity-0 transition-all group-hover:pointer-events-auto group-hover:opacity-100">
-              {navModalities.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-3 py-2 text-sm text-zinc-300 transition hover:bg-[#F5C400] hover:text-black"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="absolute left-0 top-full pt-2 opacity-0 pointer-events-none transition-all group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
+              <div className="w-56 rounded border border-[#F5C400]/30 bg-black/95 p-2 shadow-[0_18px_40px_rgba(0,0,0,0.45)]">
+                {navModalities.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-3 py-2 text-sm text-zinc-300 transition hover:bg-[#F5C400] hover:text-black"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
           <Link href="/#diferenciais" className="text-sm tracking-[0.08em] text-white uppercase">
