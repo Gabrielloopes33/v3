@@ -6,6 +6,8 @@ type PlaceholderMediaProps = {
   src?: string;
   alt?: string;
   priority?: boolean;
+  labelContainerClassName?: string;
+  labelClassName?: string;
 };
 
 export function PlaceholderMedia({
@@ -14,6 +16,8 @@ export function PlaceholderMedia({
   src,
   alt,
   priority = false,
+  labelContainerClassName = "",
+  labelClassName = "",
 }: PlaceholderMediaProps) {
   return (
     <div
@@ -30,8 +34,8 @@ export function PlaceholderMedia({
         />
       ) : null}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />
-      <div className="relative flex h-full items-end p-4">
-        <span className="rounded bg-black/70 px-3 py-1 text-xs font-medium tracking-[0.12em] text-[#F5C400] uppercase">
+      <div className={`relative flex h-full items-end p-4 ${labelContainerClassName}`.trim()}>
+        <span className={`rounded bg-black/70 px-3 py-1 text-xs font-medium tracking-[0.12em] text-[#F5C400] uppercase ${labelClassName}`.trim()}>
           {label}
         </span>
       </div>

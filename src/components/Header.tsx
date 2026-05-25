@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { whatsappHref } from "@/lib/site";
@@ -17,6 +18,7 @@ const navModalities = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoUnavailable, setLogoUnavailable] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -32,8 +34,20 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 md:px-8">
-        <Link href="/" className="text-xl font-bold tracking-[0.08em] text-white uppercase">
-          V3 Training Gym
+        <Link href="/" className="inline-flex items-center" aria-label="V3 Training Gym">
+          {!logoUnavailable ? (
+            <Image
+              src="/logo-v3.png"
+              alt="V3 Training Gym"
+              width={168}
+              height={88}
+              className="h-14 w-auto object-contain"
+              priority
+              onError={() => setLogoUnavailable(true)}
+            />
+          ) : (
+            <span className="text-xl font-bold tracking-[0.08em] text-white uppercase">V3 Training Gym</span>
+          )}
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

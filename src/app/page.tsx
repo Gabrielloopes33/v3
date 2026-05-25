@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { HeroAcademyCarousel } from "@/components/HeroAcademyCarousel";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
+import { ShowcaseVideo } from "@/components/ShowcaseVideo";
 import { businessInfo, modalities, whatsappHref } from "@/lib/site";
 import { homeMedia } from "@/lib/media";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
@@ -13,70 +15,66 @@ export default function Home() {
           <PlaceholderMedia label="Hero da V3" src={homeMedia.hero} priority className="h-full w-full" />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/30" />
         </div>
-        <div className="stagger relative mx-auto w-full max-w-7xl">
-          <p className="reveal text-xs tracking-[0.14em] text-[#F5C400] uppercase">Ipatinga · Cidade Nobre</p>
-          <h1 className="display-font reveal mt-4 max-w-4xl text-5xl leading-[0.9] font-extrabold tracking-tight uppercase md:text-8xl">
-            <span className="hero-line reveal">O lugar onde a</span>
-            <span className="hero-line reveal text-[#F5C400]">transformação</span>
-            <span className="hero-line reveal">acontece.</span>
-          </h1>
-          <p className="reveal mt-4 max-w-2xl text-zinc-300">
-            Musculação. Luta. Corrida. Yoga. Tudo em um só lugar.
-          </p>
-          <div className="reveal mt-7 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-analytics="whatsapp"
-              data-location="home-hero-primary"
-              className="motion-cta inline-flex rounded bg-[#F5C400] px-7 py-3 text-sm font-semibold tracking-[0.08em] text-black uppercase hover:bg-[#E0B000]"
-            >
-              Quero treinar na V3
-            </a>
-            <a
-              href="#tour"
-              className="motion-cta inline-flex rounded border border-[#F5C400] px-7 py-3 text-sm font-semibold tracking-[0.08em] text-[#F5C400] uppercase"
-            >
-              Conhecer a academia
+        <div className="stagger relative mx-auto grid w-full max-w-7xl items-end gap-10 lg:grid-cols-[1fr_0.95fr]">
+          <div>
+            <p className="reveal text-xs tracking-[0.14em] text-[#F5C400] uppercase">Ipatinga · Cidade Nobre</p>
+            <h1 className="display-font reveal mt-4 max-w-4xl text-5xl leading-[0.9] font-extrabold tracking-tight uppercase md:text-8xl">
+              <span className="hero-line reveal">O lugar onde a</span>
+              <span className="hero-line reveal text-[#F5C400]">transformação</span>
+              <span className="hero-line reveal">acontece.</span>
+            </h1>
+            <div className="reveal mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="whatsapp"
+                data-location="home-hero-primary"
+                className="motion-cta inline-flex rounded bg-[#F5C400] px-7 py-3 text-sm font-semibold tracking-[0.08em] text-black uppercase hover:bg-[#E0B000]"
+              >
+                Quero treinar na V3
+              </a>
+              <a
+                href="#tour"
+                className="motion-cta inline-flex rounded border border-[#F5C400] px-7 py-3 text-sm font-semibold tracking-[0.08em] text-[#F5C400] uppercase"
+              >
+                Conhecer a academia
+              </a>
+            </div>
+            <a href="#tour" className="reveal mt-8 inline-flex scroll-indicator">
+              Scroll
             </a>
           </div>
-          <a href="#tour" className="reveal mt-8 inline-flex scroll-indicator">
-            Scroll
-          </a>
-        </div>
-      </section>
-
-      <section className="bg-[#F5C400] px-4 py-8 text-black md:px-8">
-        <div className="stagger mx-auto grid w-full max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            [5, "anos de história"],
-            [500, "alunos transformados"],
-            [6, "modalidades"],
-            [0, "Cidade Nobre, Ipatinga"],
-          ].map(([value, label]) => (
-            <div key={String(value)} className="reveal">
-              {Number(value) > 0 ? (
-                <p className="display-font text-5xl leading-none md:text-7xl">
-                  +<span data-countup={String(value)}>0</span>
-                </p>
-              ) : (
-                <p className="display-font text-3xl leading-none md:text-5xl">Cidade Nobre</p>
-              )}
-              <p className="text-sm uppercase">{label}</p>
-            </div>
-          ))}
+          <div className="reveal hidden lg:block lg:pb-2">
+            <HeroAcademyCarousel />
+          </div>
         </div>
       </section>
 
       <section id="tour" className="section-padding mx-auto grid w-full max-w-7xl gap-8 px-4 md:grid-cols-[1.3fr_1fr] md:px-8">
-        <PlaceholderMedia label="01 - Recepção" src={homeMedia.recepcao} className="reveal min-h-80" />
+        <ShowcaseVideo
+          title="Recepcao"
+          badge="01 - Recepcao"
+          posterSrc={homeMedia.recepcao}
+          className="min-h-80"
+        />
         <div className="reveal flex flex-col justify-center">
-          <p className="text-xs tracking-[0.14em] text-[#F5C400] uppercase">01 - Recepção</p>
-          <h2 className="display-font mt-3 text-4xl uppercase md:text-6xl">Bem-vindo à V3.</h2>
-          <p className="mt-4 text-zinc-300">
-            Aqui começa a sua transformação em um ambiente acolhedor, profissional e familiar.
-          </p>
+          <p className="text-xs tracking-[0.14em] text-[#F5C400] uppercase">Diferenciais V3</p>
+          <h2 className="display-font mt-3 text-4xl uppercase md:text-5xl">Experiencia completa para evoluir.</h2>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {[
+              ["Atendimento diferenciado", "Nossa equipe te conhece pelo nome."],
+              ["Ambiente familiar", "Uma academia acolhedora, sem lotacao extrema."],
+              ["Climatizado", "Conforto termico para treinar bem o ano todo."],
+              ["Acompanhamento real", "Professores monitoram sua evolucao."],
+            ].map(([title, text]) => (
+              <article key={title} className="rounded border border-[#F5C400]/30 bg-black/40 p-4">
+                <h3 className="display-font text-2xl leading-none text-[#F5C400] uppercase">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">{text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
