@@ -10,7 +10,7 @@ type ShowcaseVideoProps = {
 export function ShowcaseVideo({
   title,
   badge,
-  videoSrc = "/videos/hero1.mp4",
+  videoSrc = "/videos/hero1-avc.mp4",
   posterSrc,
   className = "",
   controls = false,
