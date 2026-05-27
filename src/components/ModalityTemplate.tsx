@@ -46,7 +46,6 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
               label="Foto da modalidade"
               src={getModalityImageSrc(modality.slug) ?? modalityMedia[modality.slug]}
               className="h-full w-full"
-              unoptimized
             />
           )}
           <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-black/40" />
@@ -132,7 +131,6 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
                   label={`Foto ${index + 1}`}
                   src={imageSrc}
                   className="h-64"
-                  unoptimized
                 />
               ))}
         </div>

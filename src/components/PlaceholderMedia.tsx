@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 
 type PlaceholderMediaProps = {
   label: string;
@@ -6,7 +6,6 @@ type PlaceholderMediaProps = {
   src?: string;
   alt?: string;
   priority?: boolean;
-  unoptimized?: boolean;
   labelContainerClassName?: string;
   labelClassName?: string;
 };
@@ -17,7 +16,6 @@ export function PlaceholderMedia({
   src,
   alt,
   priority = false,
-  unoptimized = false,
   labelContainerClassName = "",
   labelClassName = "",
 }: PlaceholderMediaProps) {
@@ -28,14 +26,13 @@ export function PlaceholderMedia({
       className={`relative overflow-hidden border border-white/10 bg-[linear-gradient(130deg,#111_0%,#1a1a1a_50%,#0a0a0a_100%)] ${className}`}
     >
       {resolvedSrc ? (
-        <Image
+        <img
           src={resolvedSrc}
           alt={alt ?? label}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority={priority}
-          unoptimized={unoptimized}
-          className="object-cover"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden={false}
         />
       ) : null}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />

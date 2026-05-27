@@ -4,25 +4,30 @@ type ShowcaseVideoProps = {
   videoSrc?: string;
   posterSrc?: string;
   className?: string;
+  controls?: boolean;
 };
 
 export function ShowcaseVideo({
   title,
   badge,
-  videoSrc = "/videos/recepcao.mp4",
+  videoSrc = "/videos/hero1.mp4",
   posterSrc,
   className = "",
+  controls = false,
 }: ShowcaseVideoProps) {
   return (
     <div
       className={`reveal relative min-h-80 overflow-hidden border border-white/10 bg-black ${className}`.trim()}
     >
       <video
-        className="h-full w-full object-cover"
-        controls
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster={posterSrc}
+        controls={controls}
       >
         <source src={videoSrc} type="video/mp4" />
         Seu navegador nao suporta video HTML5.
