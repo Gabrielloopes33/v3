@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { HeroAcademyCarousel } from "@/components/HeroAcademyCarousel";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
+import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 import { ShowcaseVideo } from "@/components/ShowcaseVideo";
 import { businessInfo, getWhatsAppHref, modalities } from "@/lib/site";
-import { homeMedia } from "@/lib/media";
+import { getModalityImageSrc, homeMedia } from "@/lib/media";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 
 export default function Home() {
@@ -12,10 +13,10 @@ export default function Home() {
   return (
     <main>
       <LocalBusinessJsonLd />
-      <section className="relative flex min-h-[100svh] items-end overflow-hidden px-4 pb-12 pt-24 md:px-8">
+      <section className="relative flex min-h-svh items-end overflow-hidden px-4 pb-12 pt-24 md:px-8">
         <div className="absolute inset-0" data-parallax="5">
           <PlaceholderMedia label="Hero da V3" src={homeMedia.hero} priority className="h-full w-full" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/85 to-black/30" />
         </div>
         <div className="stagger relative mx-auto grid w-full max-w-7xl items-end gap-10 lg:grid-cols-[1fr_0.95fr]">
           <div>
@@ -171,21 +172,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="diferenciais" className="section-padding bg-[#F5C400] px-4 text-black md:px-8">
-        <div className="stagger mx-auto grid w-full max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Atendimento diferenciado", "Nossa equipe te conhece pelo nome."],
-            ["Ambiente familiar", "Uma academia acolhedora, sem lotação extrema."],
-            ["Climatizado", "Conforto térmico para treinar bem o ano todo."],
-            ["Acompanhamento real", "Professores monitoram sua evolução."],
-          ].map(([title, text]) => (
-            <article key={title} className="reveal">
-              <h3 className="display-font text-3xl leading-none uppercase">{title}</h3>
-              <p className="mt-3 text-sm">{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <TestimonialsMarquee />
 
       <section className="section-padding mx-auto w-full max-w-7xl px-4 md:px-8">
         <p className="text-xs tracking-[0.14em] text-[#F5C400] uppercase">Modalidades</p>
@@ -194,10 +181,10 @@ export default function Home() {
             <Link
               key={item.slug}
               href={`/${item.slug}`}
-              className="motion-card reveal group relative block aspect-[3/4] overflow-hidden border border-white/10"
+              className="motion-card reveal group relative block aspect-3/4 overflow-hidden border border-white/10"
             >
-              <PlaceholderMedia label={`Foto ${item.name}`} src={`/images/modalities/${item.slug}.svg`} className="h-full w-full" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <PlaceholderMedia label={`Foto ${item.name}`} src={getModalityImageSrc(item.slug)} className="h-full w-full" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4">
                 <p className="display-font text-3xl uppercase">{item.name}</p>
                 <span className="text-[#F5C400] opacity-0 transition group-hover:opacity-100">→</span>
@@ -263,24 +250,6 @@ export default function Home() {
         />
       </section>
 
-      <section className="section-padding bg-[#111111] px-4 md:px-8">
-        <div className="mx-auto w-full max-w-7xl">
-          <h3 className="display-font text-4xl uppercase md:text-5xl">Depoimentos</h3>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {[
-              "Comecei sem condicionamento e em 3 meses já senti evolução real.",
-              "Academia acolhedora e professores presentes em todos os treinos.",
-              "Ambiente familiar e estrutura excelente aqui na Cidade Nobre.",
-            ].map((quote) => (
-              <article key={quote} className="motion-card border border-white/10 bg-black/50 p-5">
-                <p className="text-[#F5C400]">★★★★★</p>
-                <p className="mt-3 text-zinc-200 italic">&quot;{quote}&quot;</p>
-                <p className="mt-4 text-sm text-[#F5C400]">Aluno V3</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

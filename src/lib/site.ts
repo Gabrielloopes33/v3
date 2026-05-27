@@ -24,7 +24,7 @@ export const siteConfig = {
   ogTitle: "V3 Training Gym - O lugar onde a transformação acontece",
   ogDescription:
     "Academia em Ipatinga com musculação, lutas e aulas coletivas. Venha transformar sua vida.",
-  ogImage: "/images/home/hero.svg",
+  ogImage: "/images/home/hero.jpg",
   keywords: [
     "academia ipatinga",
     "musculacao cidade nobre",

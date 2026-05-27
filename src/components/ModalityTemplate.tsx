@@ -2,7 +2,13 @@ import Link from "next/link";
 import type { Modality } from "@/lib/site";
 import { getWhatsAppHref, modalities } from "@/lib/site";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
-import { modalityGalleryMedia, modalityGalleryVideo, modalityHeroVideo, modalityMedia } from "@/lib/media";
+import {
+  getModalityImageSrc,
+  modalityGalleryMedia,
+  modalityGalleryVideo,
+  modalityHeroVideo,
+  modalityMedia,
+} from "@/lib/media";
 
 type ModalityTemplateProps = {
   modality: Modality;
@@ -38,11 +44,12 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
           ) : (
             <PlaceholderMedia
               label="Foto da modalidade"
-              src={modalityMedia[modality.slug]}
+              src={getModalityImageSrc(modality.slug) ?? modalityMedia[modality.slug]}
               className="h-full w-full"
+              unoptimized
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-black/40" />
         </div>
         <div className="relative mx-auto w-full max-w-7xl">
           <p className="text-xs tracking-[0.14em] text-[#F5C400] uppercase">Modalidade V3</p>
@@ -120,7 +127,13 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
                 </div>
               ))
             : galleryImages.map((imageSrc, index) => (
-                <PlaceholderMedia key={`${modality.slug}-${imageSrc}`} label={`Foto ${index + 1}`} src={imageSrc} className="h-64" />
+                <PlaceholderMedia
+                  key={`${modality.slug}-${imageSrc}`}
+                  label={`Foto ${index + 1}`}
+                  src={imageSrc}
+                  className="h-64"
+                  unoptimized
+                />
               ))}
         </div>
       </section>

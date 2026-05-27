@@ -6,6 +6,7 @@ type PlaceholderMediaProps = {
   src?: string;
   alt?: string;
   priority?: boolean;
+  unoptimized?: boolean;
   labelContainerClassName?: string;
   labelClassName?: string;
 };
@@ -16,20 +17,24 @@ export function PlaceholderMedia({
   src,
   alt,
   priority = false,
+  unoptimized = false,
   labelContainerClassName = "",
   labelClassName = "",
 }: PlaceholderMediaProps) {
+  const resolvedSrc = src ? encodeURI(src) : undefined;
+
   return (
     <div
       className={`relative overflow-hidden border border-white/10 bg-[linear-gradient(130deg,#111_0%,#1a1a1a_50%,#0a0a0a_100%)] ${className}`}
     >
-      {src ? (
+      {resolvedSrc ? (
         <Image
-          src={src}
+          src={resolvedSrc}
           alt={alt ?? label}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
+          unoptimized={unoptimized}
           className="object-cover"
         />
       ) : null}

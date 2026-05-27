@@ -1,25 +1,29 @@
 export const homeMedia = {
-  hero: "/images/home/hero.svg",
-  recepcao: "/images/home/recepcao.svg",
-  musculacao1: "/images/home/musculacao-1.svg",
-  musculacao2: "/images/home/musculacao-2.svg",
-  musculacao3: "/images/home/musculacao-3.svg",
-  musculacao4: "/images/home/musculacao-4.svg",
-  energy: "/images/home/energy-box.svg",
-  lutas: "/images/home/lutas.svg",
-  vestiario: "/images/home/vestiario.svg",
-  convivencia: "/images/home/convivencia.svg",
-  fachada: "/images/home/fachada.svg",
+  hero: "/images/home/hero.jpg",
+  recepcao: "/images/home/recepcao.jpg",
+  musculacao1: "/images/home/musculacao-1.jpg",
+  musculacao2: "/images/home/musculacao-2.jpg",
+  musculacao3: "/images/home/musculacao-3.jpg",
+  musculacao4: "/images/home/musculacao-4.jpg",
+  energy: "/images/home/energy-box.jpg",
+  lutas: "/images/home/lutas.jpg",
+  vestiario: "/images/home/vestiario.jpg",
+  convivencia: "/images/home/convivencia.jpg",
+  fachada: "/images/home/fachada.jpg",
+};
+
+const modalityImagePathBySlug: Record<string, string> = {
+  musculacao: "/images/modalities/musculacao-cover.jpg",
+  "energy-box": "/images/modalities/energy-box.jpg",
+  "muay-thai": "/images/modalities/muay-thai.jpg",
+  "krav-maga": "/images/modalities/krav-maga.jpg",
+  "jiu-jitsu": "/images/modalities/jiu-jitsu.svg",
+  yoga: "/images/modalities/yoga.svg",
+  "krav-maga-kids": "/images/modalities/krav-maga-kids.jpg",
 };
 
 export const modalityMedia: Record<string, string> = {
-  musculacao: "/images/modalities/musculacao.svg",
-  "energy-box": "/images/modalities/energy-box.svg",
-  "muay-thai": "/images/modalities/muay-thai.svg",
-  "krav-maga": "/images/modalities/krav-maga.svg",
-  "jiu-jitsu": "/images/modalities/jiu-jitsu.svg",
-  yoga: "/images/modalities/yoga.svg",
-  "krav-maga-kids": "/images/modalities/krav-maga-kids.svg",
+  ...modalityImagePathBySlug,
 };
 
 export const modalityHeroVideo: Record<string, string> = {
@@ -28,26 +32,26 @@ export const modalityHeroVideo: Record<string, string> = {
 
 export const modalityGalleryMedia: Record<string, string[]> = {
   "energy-box": [
-    "/images/modalities/energy-box%20copy.svg",
-    "/images/modalities/energy-box%20copy%202.svg",
-    "/images/modalities/energy-box%20copy%203.svg",
+    "/images/modalities/energy-box copy.png",
+    "/images/modalities/energy-box copy 2.png",
+    "/images/modalities/energy-box copy 3.png",
   ],
   musculacao: [
-    "/images/modalities/musculacao.svg",
-    "/images/modalities/musculacao%20copy%204.svg",
-    "/images/modalities/musculacao%20copy%205.svg",
-    "/images/modalities/musculacao%20copy%206.svg",
+    "/images/modalities/musculacao.png",
+    "/images/modalities/musculacao copy 4.png",
+    "/images/modalities/musculacao copy 5.png",
+    "/images/modalities/musculacao copy 6.png",
   ],
   "krav-maga": [
-    "/images/modalities/krav-maga%20copy.svg",
-    "/images/modalities/krav-maga%20copy%201.svg",
-    "/images/modalities/krav-maga%20copy%202.svg",
-    "/images/modalities/krav-maga%20copy%203.svg",
+    "/images/modalities/krav-maga copy.jpg",
+    "/images/modalities/krav-maga copy 1.jpg",
+    "/images/modalities/krav-maga copy 2.jpg",
+    "/images/modalities/krav-maga copy 3.jpg",
   ],
   "krav-maga-kids": [
-    "/images/modalities/krav-maga-kids.svg",
-    "/images/modalities/krav-maga-kids1.svg",
-    "/images/modalities/krav-maga-kids2.svg",
+    "/images/modalities/krav-maga-kids.jpg",
+    "/images/modalities/krav-maga-kids1.jpg",
+    "/images/modalities/krav-maga-kids2.jpg",
   ],
 };
 
@@ -58,3 +62,7 @@ export const modalityGalleryVideo: Record<string, string[]> = {
     "/images/modalities/muay-thai%20copy4.MOV",
   ],
 };
+
+export function getModalityImageSrc(slug: string) {
+  return modalityImagePathBySlug[slug] ?? "/images/home/hero.jpg";
+}
