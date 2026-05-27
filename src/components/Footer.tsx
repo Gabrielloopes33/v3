@@ -1,7 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import { whatsappHref } from "@/lib/site";
+import { usePathname } from "next/navigation";
+import { getModalityBySlug, getWhatsAppHref } from "@/lib/site";
 
 export function Footer() {
+  const pathname = usePathname();
+  const currentSlug = pathname.split("/").filter(Boolean)[0];
+  const currentModality = getModalityBySlug(currentSlug);
+  const whatsappHref = getWhatsAppHref({ modalityName: currentModality?.name });
+
   return (
     <footer className="border-t border-white/10 bg-black px-4 py-12 md:px-8">
       <div className="mx-auto grid w-full max-w-7xl gap-8 md:grid-cols-3">

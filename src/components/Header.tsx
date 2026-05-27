@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { whatsappHref } from "@/lib/site";
+import { getModalityBySlug, getWhatsAppHref } from "@/lib/site";
 
 const navModalities = [
   { href: "/musculacao", label: "Musculação" },
@@ -16,9 +17,13 @@ const navModalities = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoUnavailable, setLogoUnavailable] = useState(false);
+  const currentSlug = pathname.split("/").filter(Boolean)[0];
+  const currentModality = getModalityBySlug(currentSlug);
+  const whatsappHref = getWhatsAppHref({ modalityName: currentModality?.name });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);

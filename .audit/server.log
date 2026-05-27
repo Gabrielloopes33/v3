@@ -1,0 +1,21 @@
+
+> v3-gym-site@0.1.0 dev
+> next dev -p 4173
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:4173
+- Network:       http://192.168.15.9:4173
+✓ Ready in 601ms
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\gmora\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\gmora\Desktop\developer\V3\01 - PROJETO\apps\v3-gym-site\package-lock.json
+
+
+ GET / 200 in 2.3s (next.js: 1678ms, application-code: 586ms)
+ GET / 200 in 264ms (next.js: 8ms, application-code: 256ms)
+ GET /robots.txt 404 in 740ms (next.js: 636ms, generate-params: 584ms, application-code: 104ms)
+ GET / 200 in 196ms (next.js: 5ms, application-code: 191ms)
+ GET /robots.txt 404 in 84ms (next.js: 15ms, generate-params: 11ms, application-code: 68ms)

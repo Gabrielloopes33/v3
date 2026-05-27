@@ -21,3 +21,40 @@ export const modalityMedia: Record<string, string> = {
   yoga: "/images/modalities/yoga.svg",
   "krav-maga-kids": "/images/modalities/krav-maga-kids.svg",
 };
+
+export const modalityHeroVideo: Record<string, string> = {
+  "krav-maga": "/images/modalities/IMG_9444.MOV",
+};
+
+export const modalityGalleryMedia: Record<string, string[]> = {
+  "energy-box": [
+    "/images/modalities/energy-box%20copy.svg",
+    "/images/modalities/energy-box%20copy%202.svg",
+    "/images/modalities/energy-box%20copy%203.svg",
+  ],
+  musculacao: [
+    "/images/modalities/musculacao.svg",
+    "/images/modalities/musculacao%20copy%204.svg",
+    "/images/modalities/musculacao%20copy%205.svg",
+    "/images/modalities/musculacao%20copy%206.svg",
+  ],
+  "krav-maga": [
+    "/images/modalities/krav-maga%20copy.svg",
+    "/images/modalities/krav-maga%20copy%201.svg",
+    "/images/modalities/krav-maga%20copy%202.svg",
+    "/images/modalities/krav-maga%20copy%203.svg",
+  ],
+  "krav-maga-kids": [
+    "/images/modalities/krav-maga-kids.svg",
+    "/images/modalities/krav-maga-kids1.svg",
+    "/images/modalities/krav-maga-kids2.svg",
+  ],
+};
+
+export const modalityGalleryVideo: Record<string, string[]> = {
+  "muay-thai": [
+    "/images/modalities/muay-thai%20copy2.MOV",
+    "/images/modalities/muay-thai%20copy3.MOV",
+    "/images/modalities/muay-thai%20copy4.MOV",
+  ],
+};

@@ -2,11 +2,13 @@ import Link from "next/link";
 import { HeroAcademyCarousel } from "@/components/HeroAcademyCarousel";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { ShowcaseVideo } from "@/components/ShowcaseVideo";
-import { businessInfo, modalities, whatsappHref } from "@/lib/site";
+import { businessInfo, getWhatsAppHref, modalities } from "@/lib/site";
 import { homeMedia } from "@/lib/media";
 import { LocalBusinessJsonLd } from "@/components/LocalBusinessJsonLd";
 
 export default function Home() {
+  const whatsappHref = getWhatsAppHref();
+
   return (
     <main>
       <LocalBusinessJsonLd />

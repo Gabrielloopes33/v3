@@ -1,5 +1,19 @@
-export const whatsappHref =
-  "https://wa.me/553138245500?text=Ol%C3%A1!%20Vim%20do%20site%20da%20V3%20e%20quero%20saber%20mais";
+const whatsappPhone = "553138245500";
+const whatsappBaseUrl = `https://api.whatsapp.com/send?phone=${whatsappPhone}`;
+
+type WhatsAppLinkOptions = {
+  modalityName?: string;
+};
+
+export function getWhatsAppHref(options?: WhatsAppLinkOptions) {
+  const message = options?.modalityName
+    ? `Olá! Vim da página da modalidade ${options.modalityName} no site da V3 e quero saber mais.`
+    : "Olá! Vim do site da V3 e quero saber mais.";
+
+  return `${whatsappBaseUrl}&text=${encodeURIComponent(message)}`;
+}
+
+export const whatsappHref = getWhatsAppHref();
 
 export const siteConfig = {
   siteName: "V3 Training Gym",

@@ -1,10 +1,15 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { whatsappHref } from "@/lib/site";
+import { getModalityBySlug, getWhatsAppHref } from "@/lib/site";
 
 export function WhatsAppFAB() {
+  const pathname = usePathname();
   const [pulse, setPulse] = useState(true);
+  const currentSlug = pathname.split("/").filter(Boolean)[0];
+  const currentModality = getModalityBySlug(currentSlug);
+  const whatsappHref = getWhatsAppHref({ modalityName: currentModality?.name });
 
   useEffect(() => {
     const timer = setTimeout(() => setPulse(false), 5000);
