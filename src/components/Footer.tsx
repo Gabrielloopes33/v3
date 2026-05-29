@@ -11,7 +11,7 @@ export function Footer() {
   const whatsappHref = getWhatsAppHref({ modalityName: currentModality?.name });
 
   return (
-    <footer className="border-t border-white/10 bg-black px-4 py-12 md:px-8">
+    <footer className="page-gutter border-t border-white/10 bg-black py-12">
       <div className="mx-auto grid w-full max-w-7xl gap-8 md:grid-cols-3">
         <div>
           <p className="text-xl font-bold tracking-[0.08em] text-white uppercase">V3 Training Gym</p>
@@ -20,9 +20,10 @@ export function Footer() {
 
         <div className="space-y-2 text-sm text-zinc-300">
           <p>Cidade Nobre, Ipatinga - MG</p>
-          <p>Seg-Sex: 06:00 - 22:00</p>
-          <p>Sábado: 08:00 - 15:00</p>
-          <p>Domingo: 08:00 - 12:00</p>
+          <p>Seg–Qui: 06:00 – 22:00</p>
+          <p>Sexta: 06:00 – 21:00</p>
+          <p>Sábado: 08:00 – 12:00</p>
+          <p>Dom e feriados: 09:00 – 13:00</p>
         </div>
 
         <div className="space-y-2 text-sm">

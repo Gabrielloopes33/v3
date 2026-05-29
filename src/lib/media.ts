@@ -13,13 +13,14 @@ export const homeMedia = {
 };
 
 const modalityImagePathBySlug: Record<string, string> = {
-  musculacao: "/images/modalities/musculacao-cover.jpg",
+  musculacao: "/images/home/musculacao-3.jpg",
   "energy-box": "/images/modalities/energy-box.jpg",
   "muay-thai": "/images/modalities/muay-thai.jpg",
   "krav-maga": "/images/modalities/krav-maga.jpg",
   "jiu-jitsu": "/images/modalities/jiu-jitsu.svg",
   yoga: "/images/modalities/yoga.svg",
   "krav-maga-kids": "/images/modalities/krav-maga-kids.jpg",
+  personalite: "/images/modalities/musculacao-cover.jpg",
 };
 
 export const modalityMedia: Record<string, string> = {

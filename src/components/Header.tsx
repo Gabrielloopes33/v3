@@ -38,7 +38,7 @@ export function Header() {
         scrolled ? "bg-black/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 md:px-8">
+      <div className="page-gutter mx-auto flex h-16 w-full max-w-7xl items-center justify-between md:h-20">
         <Link href="/" className="inline-flex items-center" aria-label="V3 Training Gym">
           {!logoUnavailable ? (
             <Image
@@ -46,7 +46,7 @@ export function Header() {
               alt="V3 Training Gym"
               width={168}
               height={88}
-              className="h-14 w-auto object-contain"
+              className="h-10 w-auto object-contain sm:h-12 md:h-14"
               priority
               onError={() => setLogoUnavailable(true)}
             />
@@ -99,7 +99,7 @@ export function Header() {
 
       {isOpen && (
         <div className="md:hidden">
-          <div className="space-y-1 border-t border-white/10 bg-black p-4">
+          <div className="page-gutter space-y-1 border-t border-white/10 bg-black py-4">
             {navModalities.map((item) => (
               <Link
                 key={item.href}

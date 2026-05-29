@@ -8,7 +8,7 @@ const testimonials = [
 
 export function TestimonialsMarquee() {
   return (
-    <section id="diferenciais" className="section-padding bg-[#F5C400] px-4 text-black md:px-8">
+    <section id="diferenciais" className="section-padding page-gutter bg-[#F5C400] text-black">
       <div className="mx-auto w-full max-w-7xl">
         <p className="text-xs tracking-[0.14em] text-black/70 uppercase">Depoimentos</p>
         <h2 className="mt-4 display-font text-4xl uppercase md:text-5xl">Comentários dos alunos.</h2>
