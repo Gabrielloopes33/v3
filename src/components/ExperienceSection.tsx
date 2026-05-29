@@ -12,10 +12,9 @@ const slides = [
   homeMedia.fachada,
 ];
 
-const bentoItems: { label: string; wide?: boolean; icon: React.ReactNode }[] = [
+const bentoItems: { label: string; icon: React.ReactNode }[] = [
   {
     label: "Peso livre",
-    wide: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
         <circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
@@ -44,7 +43,6 @@ const bentoItems: { label: string; wide?: boolean; icon: React.ReactNode }[] = [
   },
   {
     label: "Box de cross training",
-    wide: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -93,7 +91,6 @@ const bentoItems: { label: string; wide?: boolean; icon: React.ReactNode }[] = [
   },
   {
     label: "Equipamentos modernos",
-    wide: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
         <circle cx="12" cy="12" r="3"/>
@@ -198,24 +195,20 @@ export function ExperienceSection() {
               Experiência completa<br />para evoluir.
             </h2>
 
-            <div className="mt-6 grid grid-cols-2 gap-2">
-              {bentoItems.map((item) =>
+            <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 lg:grid-cols-4">
+              {bentoItems.map((item) => (
                 <div
                   key={item.label}
-                  className={`group rounded border border-white/10 bg-black transition-colors hover:border-[#F5C400]/35 ${
-                    item.wide
-                      ? "col-span-2 flex items-center justify-center gap-3 px-4 py-4"
-                      : "flex flex-col items-center justify-center gap-2.5 px-3 py-6 text-center"
-                  }`}
+                  className="group flex flex-col items-center justify-center gap-2 text-center"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#F5C400]/40 bg-[#050505] text-[#F5C400] transition-colors group-hover:border-[#F5C400]/70">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#F5C400]/35 bg-black text-[#F5C400] transition-colors group-hover:border-[#F5C400]/70 group-hover:bg-[#0b0b0b] sm:h-16 sm:w-16">
                     {item.icon}
                   </div>
-                  <p className={`text-zinc-200 ${item.wide ? "text-sm font-semibold tracking-[0.08em] uppercase" : "text-[11px] leading-tight tracking-wide"}`}>
+                  <p className="max-w-34 text-[11px] leading-tight text-zinc-200 sm:text-sm">
                     {item.label}
                   </p>
                 </div>
-              )}
+              ))}
             </div>
           </div>
 
