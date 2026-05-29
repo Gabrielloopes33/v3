@@ -200,25 +200,21 @@ export function ExperienceSection() {
 
             <div className="mt-6 grid grid-cols-2 gap-2">
               {bentoItems.map((item) =>
-                item.wide ? (
-                  <div
-                    key={item.label}
-                    className="col-span-2 flex items-center gap-4 rounded border border-white/10 bg-zinc-900/60 p-4 transition-colors hover:border-[#F5C400]/30"
-                  >
-                    <div className="shrink-0 rounded bg-[#F5C400]/10 p-2.5 text-[#F5C400]">
-                      {item.icon}
-                    </div>
-                    <p className="text-sm font-semibold tracking-wider text-white uppercase">{item.label}</p>
+                <div
+                  key={item.label}
+                  className={`group rounded border border-white/10 bg-black transition-colors hover:border-[#F5C400]/35 ${
+                    item.wide
+                      ? "col-span-2 flex items-center justify-center gap-3 px-4 py-4"
+                      : "flex flex-col items-center justify-center gap-2.5 px-3 py-6 text-center"
+                  }`}
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#F5C400]/40 bg-[#050505] text-[#F5C400] transition-colors group-hover:border-[#F5C400]/70">
+                    {item.icon}
                   </div>
-                ) : (
-                  <div
-                    key={item.label}
-                    className="flex flex-col items-center justify-center gap-2.5 rounded border border-white/10 bg-black py-6 px-3 text-center transition-colors hover:border-[#F5C400]/30"
-                  >
-                    <div className="text-[#F5C400]">{item.icon}</div>
-                    <p className="text-[11px] leading-tight tracking-wide text-zinc-300">{item.label}</p>
-                  </div>
-                )
+                  <p className={`text-zinc-200 ${item.wide ? "text-sm font-semibold tracking-[0.08em] uppercase" : "text-[11px] leading-tight tracking-wide"}`}>
+                    {item.label}
+                  </p>
+                </div>
               )}
             </div>
           </div>
