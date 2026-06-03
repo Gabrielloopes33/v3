@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 function animateCountUp(element: HTMLElement, target: number, duration = 1200) {
   const start = performance.now();
@@ -19,6 +20,8 @@ function animateCountUp(element: HTMLElement, target: number, duration = 1200) {
 }
 
 export function ViewportEnhancer() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealItems = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
@@ -94,7 +97,7 @@ export function ViewportEnhancer() {
         cancelAnimationFrame(rafId);
       }
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

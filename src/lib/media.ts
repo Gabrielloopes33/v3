@@ -17,8 +17,8 @@ const modalityImagePathBySlug: Record<string, string> = {
   "energy-box": "/images/modalities/energy-box.jpg",
   "muay-thai": "/images/modalities/muay-thai.jpg",
   "krav-maga": "/images/modalities/krav-maga.jpg",
-  "jiu-jitsu": "/images/modalities/jiu-jitsu.svg",
-  yoga: "/images/modalities/yoga.svg",
+  "jiu-jitsu": "/images/modalities/jiu-jitsu/jiu-jitsu-1.jpg",
+  yoga: "/images/modalities/yoga/yoga-2.jpg",
   "krav-maga-kids": "/images/modalities/krav-maga-kids.jpg",
   personalite: "/images/modalities/musculacao-cover.jpg",
 };
@@ -28,7 +28,7 @@ export const modalityMedia: Record<string, string> = {
 };
 
 export const modalityHeroVideo: Record<string, string> = {
-  "krav-maga": "/images/modalities/IMG_9444.MOV",
+  "krav-maga": "/images/modalities/krav-maga.mp4",
 };
 
 export const modalityGalleryMedia: Record<string, string[]> = {
@@ -54,13 +54,25 @@ export const modalityGalleryMedia: Record<string, string[]> = {
     "/images/modalities/krav-maga-kids1.jpg",
     "/images/modalities/krav-maga-kids2.jpg",
   ],
+  "jiu-jitsu": [
+    "/images/modalities/jiu-jitsu/jiu-jitsu-1.jpg",
+    "/images/modalities/jiu-jitsu/jiu-jitsu-2.jpg",
+    "/images/modalities/jiu-jitsu/jiu-jitsu-3.jpg",
+    "/images/modalities/jiu-jitsu/jiu-jitsu-4.jpg",
+  ],
+  yoga: [
+    "/images/modalities/yoga/yoga-1.jpg",
+    "/images/modalities/yoga/yoga-2.jpg",
+    "/images/modalities/yoga/yoga-3.png",
+    "/images/modalities/yoga/yoga-4.jpg",
+  ],
 };
 
 export const modalityGalleryVideo: Record<string, string[]> = {
   "muay-thai": [
-    "/images/modalities/muay-thai%20copy2.MOV",
-    "/images/modalities/muay-thai%20copy3.MOV",
-    "/images/modalities/muay-thai%20copy4.MOV",
+    "/images/modalities/muay-thai-1.mp4",
+    "/images/modalities/muay-thai-2.mp4",
+    "/images/modalities/muay-thai-3.mp4",
   ],
 };
 

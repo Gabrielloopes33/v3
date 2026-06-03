@@ -117,9 +117,7 @@ export const modalities: Modality[] = [
     ],
     audience: ["Iniciantes", "Intermediários", "Quem gosta de aula em grupo"],
     schedule: [
-      { day: "Seg-Qua-Sex", time: "07:00 / 18:30" },
-      { day: "Terça-Quinta", time: "19:30" },
-      { day: "Sábado", time: "09:00" },
+      { day: "Segunda à Sexta", time: "07h00" },
     ],
   },
   {
@@ -136,7 +134,7 @@ export const modalities: Modality[] = [
     ],
     audience: ["Iniciantes", "Intermediários", "Praticantes avançados"],
     schedule: [
-      { day: "Segunda-feira", time: "20h15" },
+      { day: "Segunda-feira", time: "19h30" },
       { day: "Quarta-feira", time: "20h15" },
       { day: "Sexta-feira", time: "19h30" },
     ],
@@ -206,11 +204,10 @@ export const modalities: Modality[] = [
     ],
     audience: ["Adultos", "Iniciantes", "Intermediários"],
     schedule: [
-      { day: "Segunda-feira", time: "18h15 e 19h15" },
-      { day: "Terça-feira", time: "19h30" },
-      { day: "Quarta-feira", time: "18h15 e 19h15" },
-      { day: "Quinta-feira", time: "19h30" },
-      { day: "Sábado", time: "09h às 11h" },
+      { day: "Terça-feira", time: "07h / 18h15 (Kids) / 19h15" },
+      { day: "Quarta-feira", time: "18h15" },
+      { day: "Quinta-feira", time: "07h / 18h15 (Kids) / 19h15" },
+      { day: "Sábado", time: "09h" },
     ],
     whyChoose: [
       {
@@ -268,16 +265,70 @@ export const modalities: Modality[] = [
     name: "Jiu-Jitsu",
     tagline: "Técnica. Estratégia. Superação.",
     whatIs:
-      "Arte marcial baseada em técnica e controle, excelente para condicionamento e evolução constante.",
+      "Arte marcial baseada em luta de solo, alavancas e pressões, onde técnica vence força bruta.",
     benefits: [
-      "Evolução técnica com metodologia",
-      "Fortalecimento físico e mental",
-      "Treino em equipe e respeito mútuo",
-      "Opção para lazer ou competição",
+      "Condicionamento físico completo e alto gasto calórico",
+      "Defesa pessoal eficiente para situações reais",
+      "Foco, agilidade mental e resiliência",
+      "Treino em equipe com respeito mútuo",
     ],
     audience: ["Iniciantes", "Intermediários", "Competidores"],
     schedule: [
-      { day: "Horários", time: "Em breve — aguarde!" },
+      { day: "Segunda-feira", time: "20h30" },
+      { day: "Terça-feira", time: "21h00" },
+      { day: "Quinta-feira", time: "21h00" },
+      { day: "Sexta-feira", time: "18h00" },
+    ],
+    whyChoose: [
+      {
+        title: "O xadrez humano",
+        description:
+          "O Jiu-Jitsu é conhecido como o 'xadrez humano'. Diferente de modalidades que focam em socos e chutes, é uma arte baseada em luta de solo, alavancas, pressões e chaves. A grande premissa é que uma pessoa menor e fisicamente mais fraca consegue dominar um oponente maior usando técnica e biomecânica a seu favor.",
+      },
+      {
+        title: "Defesa pessoal real",
+        description:
+          "É uma das artes marciais mais eficientes para situações reais, já que a maioria das agressões físicas acaba terminando no chão. Você aprende a controlar um oponente sem precisar dar um único soco.",
+      },
+      {
+        title: "Superação e evolução constante",
+        description:
+          "O segredo do jiu-jitsu é a constância e o respeito. No tatame, cada treino é um aprendizado prático de humildade e superação. Você entra para suar o corpo e sai com a mente blindada.",
+      },
+    ],
+    richBenefits: [
+      {
+        title: "Condicionamento físico brutal",
+        description:
+          "O treino envolve o corpo todo. Em uma única sessão de 'rola', você trabalha força, resistência cardiovascular, flexibilidade e coordenação. O gasto calórico é altíssimo.",
+      },
+      {
+        title: "Foco e agilidade mental",
+        description:
+          "No tatame, você precisa raciocinar sob pressão. Cada movimento do seu parceiro exige uma resposta rápida, o que esvazia a cabeça de problemas externos e melhora muito a concentração.",
+      },
+      {
+        title: "Alívio do estresse e resiliência",
+        description:
+          "O tatame é um equalizador. Você aprende a lidar com a frustração, a manter a calma em situações desconfortáveis e a respirar fundo para encontrar saídas. Essa resiliência vai direto para a sua vida pessoal e profissional.",
+      },
+    ],
+    whyV3: [
+      {
+        title: "Metodologia progressiva",
+        description:
+          "Você começa pelos fundamentos — aprendendo a cair com segurança, a fazer as pegadas certas no kimono e a entender as posições básicas de guarda e controle. Quando menos espera, já está completamente integrado à prática.",
+      },
+      {
+        title: "Comunidade do tatame",
+        description:
+          "A parceria e o respeito mútuo são a base de tudo. Aqui, você faz parte de uma comunidade onde a evolução acontece em equipe e cada treino fortalece laços.",
+      },
+      {
+        title: "Transformação de estilo de vida",
+        description:
+          "Se você busca uma atividade que vá além da monotonia da musculação tradicional, o Jiu-Jitsu é uma escolha excelente. É o tipo de esporte que transforma o estilo de vida de quem pratica.",
+      },
     ],
   },
   {

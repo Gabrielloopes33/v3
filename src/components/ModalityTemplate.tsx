@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Modality } from "@/lib/site";
 import { getWhatsAppHref, modalities } from "@/lib/site";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
+import { LazyVideo } from "@/components/LazyVideo";
 import {
   getModalityImageSrc,
   modalityGalleryMedia,
@@ -38,6 +39,13 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
     modalityMedia[modality.slug],
   ];
 
+  const videoPosters: Record<string, string> = {
+    "/images/modalities/krav-maga.mp4": "/videos/posters/krav-maga.jpg",
+    "/images/modalities/muay-thai-1.mp4": "/videos/posters/muay-thai-1.jpg",
+    "/images/modalities/muay-thai-2.mp4": "/videos/posters/muay-thai-2.jpg",
+    "/images/modalities/muay-thai-3.mp4": "/videos/posters/muay-thai-3.jpg",
+  };
+
   const hasRichContent = !!(modality.whyChoose || modality.richBenefits || modality.whyV3);
 
   return (
@@ -46,17 +54,11 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
       <section className="relative flex min-h-[80svh] items-end overflow-hidden px-4 pb-12 pt-28 md:px-8">
         <div className="absolute inset-0">
           {heroVideoSrc ? (
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-hidden="true"
-            >
-              <source src={heroVideoSrc} type="video/quicktime" />
-            </video>
+            <LazyVideo
+              src={heroVideoSrc}
+              poster={videoPosters[heroVideoSrc]}
+              className="h-full w-full"
+            />
           ) : (
             <PlaceholderMedia
               label="Foto da modalidade"
@@ -176,9 +178,11 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
                   key={`${modality.slug}-${videoSrc}`}
                   className="relative h-64 overflow-hidden border border-white/10 bg-[linear-gradient(130deg,#111_0%,#1a1a1a_50%,#0a0a0a_100%)]"
                 >
-                  <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata">
-                    <source src={videoSrc} />
-                  </video>
+                  <LazyVideo
+                    src={videoSrc}
+                    poster={videoPosters[videoSrc]}
+                    className="h-full w-full"
+                  />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />
                 </div>
               ))

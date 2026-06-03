@@ -16,6 +16,19 @@ const videos = [
   "/videos/herov/tatame%281%29.mp4",
 ];
 
+const thumbs = [
+  "/videos/herov-thumbs/academia-1.jpg",
+  "/videos/herov-thumbs/academia-2.jpg",
+  "/videos/herov-thumbs/academia-3.jpg",
+  "/videos/herov-thumbs/academia-4.jpg",
+  "/videos/herov-thumbs/academia-5.jpg",
+  "/videos/herov-thumbs/academia-6.jpg",
+  "/videos/herov-thumbs/academia-7.jpg",
+  "/videos/herov-thumbs/banheiro.jpg",
+  "/videos/herov-thumbs/energy.jpg",
+  "/videos/herov-thumbs/tatame.jpg",
+];
+
 const hours = [
   { days: "Seg–Qui", time: "06:00–22:00" },
   { days: "Sexta", time: "06:00–21:00" },
@@ -32,8 +45,6 @@ function VideoThumb({
   active: boolean;
   onClick: () => void;
 }) {
-  const ref = useRef<HTMLVideoElement>(null);
-
   return (
     <button
       onClick={onClick}
@@ -42,15 +53,11 @@ function VideoThumb({
         active ? "opacity-100 ring-2 ring-inset ring-[#F5C400]" : "opacity-50 hover:opacity-75"
       }`}
     >
-      <video
-        ref={ref}
+      <img
         src={src}
-        preload="metadata"
-        muted
-        playsInline
-        onLoadedMetadata={() => {
-          if (ref.current) ref.current.currentTime = 0.1;
-        }}
+        alt=""
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none h-full w-full object-cover"
       />
     </button>
@@ -95,6 +102,7 @@ export function HeroSection() {
                   muted
                   playsInline
                   preload="auto"
+                  poster={thumbs[current]}
                   onEnded={next}
                   aria-hidden="true"
                 >
@@ -125,7 +133,7 @@ export function HeroSection() {
               {/* Miniaturas */}
               <div className="mt-3 max-w-full overflow-x-auto overscroll-x-contain pb-2 scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 <div className="flex w-max min-w-full gap-2 px-0.5">
-                  {videos.map((src, i) => (
+                  {thumbs.map((src, i) => (
                     <VideoThumb
                       key={i}
                       src={src}
