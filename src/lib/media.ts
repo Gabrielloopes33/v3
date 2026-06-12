@@ -45,9 +45,12 @@ export const modalityGalleryMedia: Record<string, string[]> = {
   ],
   "krav-maga": [
     "/images/modalities/krav-maga copy.jpg",
-    "/images/modalities/krav-maga copy 1.jpg",
     "/images/modalities/krav-maga copy 2.jpg",
     "/images/modalities/krav-maga copy 3.jpg",
+    "/images/modalities/_MG_6772.JPG",
+    "/images/modalities/_MG_6793.JPG",
+    "/images/modalities/_MG_6797.JPG",
+    "/images/modalities/_MG_6798.JPG",
   ],
   "krav-maga-kids": [
     "/images/modalities/krav-maga-kids.jpg",
@@ -65,6 +68,7 @@ export const modalityGalleryMedia: Record<string, string[]> = {
     "/images/modalities/yoga/yoga-2.jpg",
     "/images/modalities/yoga/yoga-3.png",
     "/images/modalities/yoga/yoga-4.jpg",
+    "/images/modalities/yoga2.jpeg",
   ],
 };
 
@@ -73,6 +77,10 @@ export const modalityGalleryVideo: Record<string, string[]> = {
     "/images/modalities/muay-thai-1.mp4",
     "/images/modalities/muay-thai-2.mp4",
     "/images/modalities/muay-thai-3.mp4",
+  ],
+  yoga: [
+    "/images/modalities/yoga3.mp4",
+    "/images/modalities/yoga4.mp4",
   ],
 };
 

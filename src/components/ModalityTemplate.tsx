@@ -32,12 +32,13 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
   const others = modalities.filter((item) => item.slug !== modality.slug && !item.redirectHref);
   const whatsappHref = getWhatsAppHref({ modalityName: modality.name });
   const heroVideoSrc = modalityHeroVideo[modality.slug];
-  const galleryVideos = modalityGalleryVideo[modality.slug];
-  const galleryImages = modalityGalleryMedia[modality.slug] ?? [
+  const galleryVideos = modalityGalleryVideo[modality.slug] ?? [];
+  const galleryImages = modalityGalleryMedia[modality.slug] ?? [];
+  const fallbackGalleryImages = galleryVideos.length === 0 && galleryImages.length === 0 ? [
     modalityMedia[modality.slug],
     modalityMedia[modality.slug],
     modalityMedia[modality.slug],
-  ];
+  ] : [];
 
   const videoPosters: Record<string, string> = {
     "/images/modalities/krav-maga.mp4": "/videos/posters/krav-maga.jpg",
@@ -47,6 +48,7 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
   };
 
   const hasRichContent = !!(modality.whyChoose || modality.richBenefits || modality.whyV3);
+  const shouldContainGalleryImages = modality.slug === "krav-maga";
 
   return (
     <main className="bg-[#0A0A0A] text-white">
@@ -172,28 +174,29 @@ export function ModalityTemplate({ modality }: ModalityTemplateProps) {
       <section className="mx-auto w-full max-w-7xl px-4 pb-16 md:px-8">
         <p className="text-xs tracking-[0.14em] text-[#F5C400] uppercase">Galeria</p>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {galleryVideos?.length
-            ? galleryVideos.map((videoSrc) => (
-                <div
-                  key={`${modality.slug}-${videoSrc}`}
-                  className="relative h-64 overflow-hidden border border-white/10 bg-[linear-gradient(130deg,#111_0%,#1a1a1a_50%,#0a0a0a_100%)]"
-                >
-                  <LazyVideo
-                    src={videoSrc}
-                    poster={videoPosters[videoSrc]}
-                    className="h-full w-full"
-                  />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />
-                </div>
-              ))
-            : galleryImages.map((imageSrc, index) => (
-                <PlaceholderMedia
-                  key={`${modality.slug}-${imageSrc}-${index}`}
-                  label=""
-                  src={imageSrc}
-                  className="h-64"
-                />
-              ))}
+          {galleryVideos.map((videoSrc) => (
+            <div
+              key={`${modality.slug}-${videoSrc}`}
+              className="relative h-64 overflow-hidden border border-white/10 bg-[linear-gradient(130deg,#111_0%,#1a1a1a_50%,#0a0a0a_100%)]"
+            >
+              <LazyVideo
+                src={videoSrc}
+                poster={videoPosters[videoSrc]}
+                className="h-full w-full"
+              />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />
+            </div>
+          ))}
+
+          {[...galleryImages, ...fallbackGalleryImages].map((imageSrc, index) => (
+            <PlaceholderMedia
+              key={`${modality.slug}-${imageSrc}-${index}`}
+              label=""
+              src={imageSrc}
+              className="h-64"
+              imageClassName={shouldContainGalleryImages ? "object-contain" : "object-cover"}
+            />
+          ))}
         </div>
       </section>
 

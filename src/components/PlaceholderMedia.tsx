@@ -6,6 +6,7 @@ type PlaceholderMediaProps = {
   src?: string;
   alt?: string;
   priority?: boolean;
+  imageClassName?: string;
   labelContainerClassName?: string;
   labelClassName?: string;
 };
@@ -16,6 +17,7 @@ export function PlaceholderMedia({
   src,
   alt,
   priority = false,
+  imageClassName = "object-cover",
   labelContainerClassName = "",
   labelClassName = "",
 }: PlaceholderMediaProps) {
@@ -31,15 +33,17 @@ export function PlaceholderMedia({
           alt={alt ?? label}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full ${imageClassName}`.trim()}
           aria-hidden={false}
         />
       ) : null}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,196,0,.15),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.08),transparent_40%)]" />
       <div className={`relative flex h-full items-end p-4 ${labelContainerClassName}`.trim()}>
-        <span className={`rounded bg-black/70 px-3 py-1 text-xs font-medium tracking-[0.12em] text-[#F5C400] uppercase ${labelClassName}`.trim()}>
-          {label}
-        </span>
+        {label ? (
+          <span className={`rounded bg-black/70 px-3 py-1 text-xs font-medium tracking-[0.12em] text-[#F5C400] uppercase ${labelClassName}`.trim()}>
+            {label}
+          </span>
+        ) : null}
       </div>
     </div>
   );
